@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require("cors");
-const router = require('./routes/index')
+// const router = require('./routes/index')
+const userRouter = require('./routes/users')
 
 const connect = require("./schemas");
 connect();
@@ -15,7 +16,8 @@ app.use(cookieParser());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/', router)
+// app.use('/', router)
+app.use('/user', userRouter)
 
 app.listen(port, () => {
     console.log(port, 'Server is open with port!');
